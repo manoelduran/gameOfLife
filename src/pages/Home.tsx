@@ -80,17 +80,11 @@ const Home: React.FC<any> = () => {
                 <Button text="Start" onClick={() => {
                     setRunning(true);
                 }} />
-                {
-                    running === true ?
-                        <Button text="Stop" onClick={() => {
-                            setRunning(false)
-                        }} />
-                        :
-                        <Button text="Clean Grid" onClick={() => {
-                            setRunning(false);
-                            setGrid(generateEmptyGrid({ numRows, numCols }))
-                        }} />
-                }
+                <Button text={running === true ? "Stop" : "Clean Grid"} onClick={() => running === true ? (
+                    setRunning(false)) : (
+                    setGrid(generateEmptyGrid({ numRows, numCols }))
+                )
+                } />
             </ButtonContainer>
         </Container>
     );
